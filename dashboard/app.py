@@ -169,656 +169,313 @@ st.markdown(
     """
 <style>
 /* ==========================================================
-   FINAL SELECT BOX FIX
+   RecoverAI — Warm Wood + Minimal Gold Theme
+   Responsive desktop + mobile
    ========================================================== */
 
-div[data-baseweb="select"] {
-    background: transparent !important;
+:root {
+    --wood-bg: #f5efe5;
+    --wood-bg-2: #eee3d2;
+    --card: #fffaf2;
+    --card-2: #f7efe2;
+    --border: #d9c7aa;
+    --border-strong: #c7ad86;
+    --text: #2f271f;
+    --muted: #725f48;
+    --muted-2: #8c775d;
+    --gold: #c7922e;
+    --gold-light: #e4bb62;
+    --gold-dark: #a87418;
+    --green: #668b45;
+    --red: #bd5a4b;
+    --shadow: rgba(83, 60, 32, 0.12);
 }
 
-div[data-baseweb="select"] > div {
-    background: #151c2d !important;
-    background-color: #151c2d !important;
-    border: 1px solid #293653 !important;
-    color: #f4f7ff !important;
-}
-
-div[data-baseweb="select"] > div > div {
-    background: #151c2d !important;
-    background-color: #151c2d !important;
-    color: #f4f7ff !important;
-}
-
-div[data-baseweb="select"] [role="combobox"] {
-    background: #151c2d !important;
-    background-color: #151c2d !important;
-    color: #f4f7ff !important;
-}
-
-div[data-baseweb="select"] input {
-    background: #151c2d !important;
-    color: #f4f7ff !important;
-}
-
-div[data-baseweb="select"] span {
-    color: #f4f7ff !important;
-}
-
-div[data-baseweb="select"] svg {
-    color: #9fb3d8 !important;
-    fill: #9fb3d8 !important;
-}
-
-/* ==========================================================
-   GLOBAL
-   ========================================================== */
-
+/* Page */
 .stApp {
-
     background:
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(25, 100, 255, 0.15),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 90% 10%,
-            rgba(140, 50, 255, 0.13),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #050811,
-            #080b14
-        );
-
-    color: #f5f7fb;
+        radial-gradient(circle at 8% 5%, rgba(228,187,98,0.18), transparent 28%),
+        radial-gradient(circle at 92% 12%, rgba(199,173,134,0.18), transparent 30%),
+        linear-gradient(135deg, var(--wood-bg), #fbf7f0 55%, var(--wood-bg-2));
+    color: var(--text);
 }
-
-
-/* Main container */
 
 .block-container {
-
     max-width: 1450px;
-
-    padding-top: 2rem;
-    padding-bottom: 5rem;
+    padding: 1.5rem 2rem 4rem;
 }
 
+#MainMenu, footer, header { visibility: hidden; }
 
-/* Hide Streamlit branding */
-
-#MainMenu {
-    visibility: hidden;
+/* General Streamlit text */
+.stApp, .stApp p, .stApp label, .stApp span,
+.stApp div, .stApp h1, .stApp h2, .stApp h3 {
+    color: var(--text);
 }
 
-footer {
-    visibility: hidden;
-}
-
-header {
-    visibility: hidden;
-}
-
-
-/* ==========================================================
-   HERO
-   ========================================================== */
-
+/* Hero */
 .hero {
-
-    padding: 55px 55px;
-
-    border-radius: 30px;
-
-    margin-bottom: 42px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(17, 35, 70, 0.98),
-            rgba(11, 17, 32, 0.98)
-        );
-
-    border:
-        1px solid
-        rgba(85, 145, 255, 0.28);
-
-    box-shadow:
-        0 25px 80px
-        rgba(0, 0, 0, 0.45),
-
-        inset 0 1px 0
-        rgba(255,255,255,0.04);
+    padding: 42px 48px;
+    border-radius: 26px;
+    margin-bottom: 34px;
+    background: linear-gradient(135deg, #fffaf2, #f1e5d2);
+    border: 1px solid var(--border-strong);
+    box-shadow: 0 18px 45px var(--shadow), inset 0 1px 0 rgba(255,255,255,.8);
 }
-
-
-/* Hero title */
 
 .hero-title {
-
-    font-size: 58px;
-
+    font-size: 52px;
     font-weight: 850;
-
-    letter-spacing: -2px;
-
+    letter-spacing: -1.8px;
     line-height: 1.1;
-
-    margin-bottom: 14px;
+    margin-bottom: 10px;
 }
-
 
 .hero-title span {
-
-    background:
-        linear-gradient(
-            90deg,
-            #ffffff,
-            #74a9ff,
-            #b68cff
-        );
-
-    -webkit-background-clip: text;
-
-    -webkit-text-fill-color: transparent;
+    color: var(--gold-dark);
 }
-
-
-/* Subtitle */
 
 .hero-subtitle {
-
-    font-size: 21px;
-
-    color: #aebbd3;
-
-    margin-bottom: 25px;
+    font-size: 19px;
+    color: var(--muted) !important;
+    margin-bottom: 20px;
 }
-
-
-/* Status */
 
 .status-pill {
-
     display: inline-block;
-
-    padding: 9px 18px;
-
+    padding: 8px 15px;
     border-radius: 999px;
-
-    background:
-        rgba(30, 220, 130, 0.08);
-
-    border:
-        1px solid
-        rgba(30, 220, 130, 0.25);
-
-    color: #55e59a;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
+    background: #f4e8c9;
+    border: 1px solid #d8b45d;
+    color: #7d5a18 !important;
+    font-size: 12px;
+    font-weight: 800;
     letter-spacing: 1px;
 }
 
-
-/* ==========================================================
-   SECTION TITLE
-   ========================================================== */
-
+/* Titles */
 .section-title {
-
-    font-size: 29px;
-
+    font-size: 25px;
     font-weight: 800;
-
-    margin-top: 20px;
-
-    margin-bottom: 22px;
-
-    letter-spacing: -0.5px;
+    color: var(--text) !important;
+    margin: 18px 0 18px;
+    letter-spacing: -.35px;
 }
 
-
-/* ==========================================================
-   KPI CARDS
-   ========================================================== */
-
+/* KPI cards */
 .kpi-card {
-
-    min-height: 165px;
-
-    padding: 28px;
-
-    border-radius: 22px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(17, 27, 50, 0.98),
-            rgba(9, 15, 29, 0.98)
-        );
-
-    border:
-        1px solid
-        rgba(100, 135, 190, 0.18);
-
-    box-shadow:
-        0 15px 45px
-        rgba(0,0,0,0.30);
-
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease;
+    min-height: 145px;
+    padding: 24px;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #fffdf8, #f5ecde);
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 28px var(--shadow);
+    transition: transform .2s ease, border-color .2s ease;
 }
-
-
 .kpi-card:hover {
-
-    transform:
-        translateY(-4px);
-
-    border-color:
-        rgba(100, 160, 255, 0.40);
+    transform: translateY(-3px);
+    border-color: #c9a45e;
 }
-
-
-.kpi-label {
-
-    color: #8fa7cc;
-
-    font-size: 12px;
-
-    font-weight: 700;
-
+.kpi-label, .action-label, .probability-label {
+    color: var(--muted-2) !important;
+    font-size: 10px;
+    font-weight: 800;
     text-transform: uppercase;
-
-    letter-spacing: 1.2px;
+    letter-spacing: 1.15px;
 }
-
-
 .kpi-value {
-
-    font-size: 38px;
-
+    color: var(--text) !important;
+    font-size: 34px;
     font-weight: 850;
-
-    margin-top: 12px;
+    margin-top: 9px;
 }
-
-
 .kpi-description {
-
-    color: #7084a8;
-
-    font-size: 13px;
-
-    margin-top: 7px;
-}
-
-
-/* ==========================================================
-   PANELS
-   ========================================================== */
-
-.panel {
-
-    padding: 30px;
-
-    border-radius: 25px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(16, 26, 48, 0.96),
-            rgba(8, 14, 27, 0.96)
-        );
-
-    border:
-        1px solid
-        rgba(100, 140, 210, 0.20);
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,0.30);
-}
-
-
-/* ==========================================================
-   AI RESULT
-   ========================================================== */
-
-.ai-result {
-
-    padding: 34px;
-
-    border-radius: 27px;
-
-    background:
-        radial-gradient(
-            circle at top right,
-            rgba(90, 120, 255, 0.20),
-            transparent 45%
-        ),
-        linear-gradient(
-            145deg,
-            #111c33,
-            #080e1b
-        );
-
-    border:
-        1px solid
-        rgba(105, 150, 255, 0.30);
-
-    box-shadow:
-        0 25px 80px
-        rgba(0,0,0,0.42);
-}
-
-
-.probability-label {
-
-    color: #91a7cc;
-
+    color: var(--muted) !important;
     font-size: 12px;
-
-    font-weight: 700;
-
-    letter-spacing: 1.5px;
+    margin-top: 6px;
 }
 
-
-.probability {
-
-    font-size: 58px;
-
-    font-weight: 900;
-
-    margin-top: 5px;
+/* Panels */
+.panel, .analysis-card {
+    padding: 26px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #fffaf2, #f4e9d9);
+    border: 1px solid var(--border);
+    box-shadow: 0 14px 38px var(--shadow);
 }
+.analysis-card { margin-top: 22px; }
 
-
-.recovery-level {
-
-    font-size: 16px;
-
-    font-weight: 700;
-
-    color: #8ea6cb;
-
-    margin-top: 8px;
-
-    margin-bottom: 25px;
-}
-
-
-/* ==========================================================
-   ACTION CARDS
-   ========================================================== */
-
-.action-card {
-
-    padding: 18px 20px;
-
-    margin-top: 12px;
-
-    border-radius: 16px;
-
-    background:
-        rgba(255,255,255,0.035);
-
-    border:
-        1px solid
-        rgba(255,255,255,0.07);
-}
-
-
-.action-label {
-
-    color: #8498ba;
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    text-transform: uppercase;
-
-    letter-spacing: 1px;
-}
-
-
-.action-value {
-
-    font-size: 21px;
-
-    font-weight: 800;
-
-    margin-top: 7px;
-}
-
-
-/* ==========================================================
-   ANALYSIS CARD
-   ========================================================== */
-
-.analysis-card {
-
-    padding: 28px;
-
+/* Result */
+.ai-result {
+    padding: 30px;
     border-radius: 22px;
-
     background:
-        linear-gradient(
-            145deg,
-            rgba(15,25,46,0.96),
-            rgba(8,13,25,0.96)
-        );
-
-    border:
-        1px solid
-        rgba(100,140,210,0.18);
-
-    margin-top: 25px;
+        radial-gradient(circle at top right, rgba(228,187,98,.22), transparent 42%),
+        linear-gradient(145deg, #fffaf2, #efe1cc);
+    border: 1px solid #cdb17e;
+    box-shadow: 0 18px 48px var(--shadow);
 }
-
-
-/* ==========================================================
-   FOOTER
-   ========================================================== */
-
-.footer {
-
-    text-align: center;
-
-    color: #536580;
-
-    margin-top: 60px;
-
-    font-size: 13px;
-
-    line-height: 1.8;
+.probability-label { color: #8a6a35 !important; }
+.probability {
+    color: #4b3822 !important;
+    font-size: 54px;
+    font-weight: 900;
+    margin-top: 4px;
 }
-
-
-/* ==========================================================
-   STREAMLIT INPUTS
-   ========================================================== */
-
-div[data-baseweb="select"] > div {
-
-    background-color:
-        rgba(20, 25, 40, 0.95);
-}
-
-
-div[data-testid="stNumberInput"] input {
-
-    background-color:
-        rgba(20, 25, 40, 0.95);
-}
-
-
-div[data-testid="stSlider"] {
-
-    padding-top: 10px;
-}
-
-
-/* Button */
-
-.stButton > button {
-
-    height: 55px;
-
-    border-radius: 15px;
-
-    font-size: 16px;
-
+.recovery-level {
+    color: #7d684d !important;
+    font-size: 15px;
     font-weight: 800;
-
-    border: none;
-
-    box-shadow:
-        0 10px 30px
-        rgba(50,100,255,0.20);
+    margin: 8px 0 20px;
 }
 
+/* Action cards */
+.action-card {
+    padding: 16px 18px;
+    margin-top: 10px;
+    border-radius: 14px;
+    background: rgba(255,255,255,.52);
+    border: 1px solid #ddceb7;
+    box-shadow: 0 5px 16px rgba(83,60,32,.06);
+}
+.action-value {
+    color: #382c20 !important;
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 6px;
+}
 
-
-
-/* ==========================================================
-   STREAMLIT INPUTS — FINAL DARK THEME
-   ========================================================== */
-
-/* Labels */
+/* Streamlit inputs */
 div[data-testid="stNumberInput"] label,
 div[data-testid="stSelectbox"] label,
 div[data-testid="stSlider"] label {
-    color: #8fa6cc !important;
+    color: #67543d !important;
     font-size: 12px !important;
-    font-weight: 700 !important;
-    margin-bottom: 6px !important;
+    font-weight: 750 !important;
+    margin-bottom: 5px !important;
 }
 
-/* Number inputs */
-div[data-testid="stNumberInput"] > div {
-    background: #151c2d !important;
-    border: 1px solid #293653 !important;
+div[data-testid="stNumberInput"] > div,
+div[data-testid="stSelectbox"] [data-baseweb="select"] > div {
+    background: #fffaf2 !important;
+    background-color: #fffaf2 !important;
+    border: 1px solid #cfb996 !important;
     border-radius: 10px !important;
+    color: #3a2e22 !important;
     min-height: 44px !important;
+    box-shadow: inset 0 1px 2px rgba(83,60,32,.05);
 }
 
 div[data-testid="stNumberInput"] input {
-    background: #151c2d !important;
-    color: #f4f7ff !important;
+    background: #fffaf2 !important;
+    color: #3a2e22 !important;
     border: none !important;
     font-size: 14px !important;
-    font-weight: 600 !important;
+    font-weight: 650 !important;
 }
 
 div[data-testid="stNumberInput"] button {
-    background: #1c263a !important;
-    color: #dce7ff !important;
+    background: #f1e2c7 !important;
+    color: #654a23 !important;
     border: none !important;
 }
-
 div[data-testid="stNumberInput"] button:hover {
-    background: #263554 !important;
+    background: #e7d2aa !important;
 }
 
-/* Select boxes — scope everything to Streamlit selectbox */
 div[data-testid="stSelectbox"] [data-baseweb="select"] {
     width: 100% !important;
 }
-
-div[data-testid="stSelectbox"] [data-baseweb="select"] > div {
-    background: #151c2d !important;
-    background-color: #151c2d !important;
-    border: 1px solid #293653 !important;
-    border-radius: 10px !important;
-    color: #f4f7ff !important;
-    min-height: 44px !important;
-}
-
-div[data-testid="stSelectbox"] [data-baseweb="select"] [role="combobox"] {
-    background: #151c2d !important;
-    background-color: #151c2d !important;
-    color: #f4f7ff !important;
-}
-
+div[data-testid="stSelectbox"] [data-baseweb="select"] [role="combobox"],
 div[data-testid="stSelectbox"] [data-baseweb="select"] span {
-    color: #f4f7ff !important;
+    background: transparent !important;
+    color: #3a2e22 !important;
 }
-
 div[data-testid="stSelectbox"] [data-baseweb="select"] svg {
-    color: #9fb3d8 !important;
-    fill: #9fb3d8 !important;
+    color: #a47a29 !important;
+    fill: #a47a29 !important;
 }
 
-/* Dropdown menu when opened */
-div[data-baseweb="popover"] {
-    background: #101827 !important;
-    border: 1px solid #293653 !important;
-}
-
+/* Dropdown */
+div[data-baseweb="popover"],
 div[data-baseweb="menu"] {
-    background: #101827 !important;
+    background: #fffaf2 !important;
+    border: 1px solid #cfb996 !important;
 }
-
 div[data-baseweb="menu"] li {
-    background: #101827 !important;
-    color: #f4f7ff !important;
+    background: #fffaf2 !important;
+    color: #3a2e22 !important;
 }
-
 div[data-baseweb="menu"] li:hover {
-    background: #1c2942 !important;
+    background: #f1e2c7 !important;
 }
 
 /* Slider */
-div[data-testid="stSlider"] {
-    padding-top: 4px !important;
-}
-
+div[data-testid="stSlider"] { padding-top: 4px !important; }
 div[data-testid="stSlider"] [data-testid="stSliderThumbValue"] {
-    color: #ff5258 !important;
-    font-weight: 800 !important;
+    color: #a87518 !important;
+    font-weight: 850 !important;
 }
 
 /* Analyze button */
 .stButton > button {
     width: 100% !important;
-    height: 48px !important;
-    border-radius: 10px !important;
-    background: #ff4d55 !important;
-    color: #ffffff !important;
-    border: none !important;
-    font-size: 13px !important;
-    font-weight: 800 !important;
+    min-height: 50px !important;
+    border-radius: 12px !important;
+    background: linear-gradient(135deg, #d8a83d, #bd8520) !important;
+    color: #fffdf8 !important;
+    border: 1px solid #b77d17 !important;
+    font-size: 14px !important;
+    font-weight: 850 !important;
+    box-shadow: 0 10px 24px rgba(174,125,32,.22);
 }
-
 .stButton > button:hover {
-    background: #ff6269 !important;
+    background: linear-gradient(135deg, #e0b34f, #c99128) !important;
+    border-color: #a96f12 !important;
 }
 
-/* Compact spacing */
-div[data-testid="stNumberInput"],
-div[data-testid="stSelectbox"],
-div[data-testid="stSlider"] {
-    margin-bottom: 8px !important;
+/* Native alerts */
+div[data-testid="stAlert"] {
+    border-radius: 10px !important;
+    border: 1px solid #d6c3a2 !important;
 }
 
-/* Responsive grids inside our HTML cards */
+/* Responsive */
 @media (max-width: 900px) {
-    .hero-title { font-size: 38px !important; }
-    .hero-subtitle { font-size: 16px !important; }
-    .section-title { font-size: 21px !important; }
-    .kpi-card { min-height: 115px !important; padding: 18px !important; }
-    .kpi-value { font-size: 27px !important; }
-    .ai-result { padding: 22px !important; }
-    .probability { font-size: 44px !important; }
+    .block-container {
+        padding: 1rem .8rem 3rem !important;
+    }
+    .hero {
+        padding: 28px 22px !important;
+        border-radius: 20px !important;
+        margin-bottom: 24px !important;
+    }
+    .hero-title { font-size: 36px !important; }
+    .hero-subtitle { font-size: 15px !important; }
+    .section-title { font-size: 20px !important; margin-top: 14px !important; }
+    .kpi-card { min-height: 110px !important; padding: 17px !important; }
+    .kpi-value { font-size: 26px !important; }
+    .panel, .analysis-card, .ai-result { padding: 18px !important; border-radius: 16px !important; }
+    .probability { font-size: 42px !important; }
+    .action-card { padding: 14px !important; }
+    .action-value { font-size: 16px !important; }
+    .stButton > button { min-height: 52px !important; }
+}
+
+/* Very small phones */
+@media (max-width: 600px) {
+    .block-container {
+        padding-left: .65rem !important;
+        padding-right: .65rem !important;
+    }
+    .hero-title { font-size: 30px !important; }
+    .hero-subtitle { font-size: 14px !important; }
+    .status-pill { font-size: 10px !important; }
+    .kpi-value { font-size: 23px !important; }
+    .probability { font-size: 36px !important; }
+    .action-label, .kpi-label, .probability-label { font-size: 9px !important; }
+    div[data-testid="stNumberInput"] input,
+    div[data-testid="stSelectbox"] span { font-size: 13px !important; }
 }
 </style>
 """,
@@ -1355,7 +1012,7 @@ if analyze:
         display:flex;
         justify-content:space-between;
         font-size:12px;
-        color:#8fa8d6;
+        color:#7d684e;
         margin-bottom:8px;
         letter-spacing:1px;
     ">
@@ -1367,7 +1024,7 @@ if analyze:
     <div style="
         width:100%;
         height:12px;
-        background:#182238;
+        background:#eadcc8;
         border-radius:20px;
         overflow:hidden;
         border:1px solid rgba(120,150,220,0.15);
@@ -1379,9 +1036,9 @@ if analyze:
             border-radius:20px;
             background:linear-gradient(
                 90deg,
-                #ff4d5a,
-                #ffc857,
-                #35e58a
+                #d39b2d,
+                #e4bb62,
+                #7e9d57
             );
             box-shadow:0 0 15px rgba(80,160,255,0.35);
         ">
@@ -1394,7 +1051,7 @@ if analyze:
         justify-content:space-between;
         margin-top:8px;
         font-size:12px;
-        color:#657da8;
+        color:#8f7a5f;
     ">
         <span>0%</span>
         <span>50%</span>
@@ -1554,7 +1211,7 @@ if analyze:
                 <div style="
                     font-size:18px;
                     line-height:1.7;
-                    color:#dbe5f7;
+                    color:#4b3d2f;
                     margin-top:10px;
                 ">
                     {decision_reason}
@@ -1621,14 +1278,14 @@ if analyze:
                     color:#a9bbd8;
                 ">
                     Transaction Data
-                    <span style="color:#647cff;"> → </span>
+                    <span style="color:#b47d1c;"> → </span>
                     ML Prediction
-                    <span style="color:#647cff;"> → </span>
+                    <span style="color:#b47d1c;"> → </span>
                     Recovery Probability
-                    <span style="color:#647cff;"> → </span>
+                    <span style="color:#b47d1c;"> → </span>
                     Decision Engine
-                    <span style="color:#647cff;"> → </span>
-                    <strong style="color:#ffffff;">
+                    <span style="color:#b47d1c;"> → </span>
+                    <strong style="color:#3a2e22;">
                         {action}
                     </strong>
                 </div>
@@ -1701,7 +1358,7 @@ if analyze:
 
                     <div style="
                         margin-top:10px;
-                        color:#8fa8d6;
+                        color:#7d684e;
                         font-size:13px;
                     ">
                         Based on predicted recovery probability
@@ -1723,7 +1380,7 @@ if analyze:
 
                     <div style="
                         margin-top:10px;
-                        color:#8fa8d6;
+                        color:#7d684e;
                         font-size:13px;
                     ">
                         ML model prediction
@@ -1745,7 +1402,7 @@ if analyze:
 
                     <div style="
                         margin-top:10px;
-                        color:#8fa8d6;
+                        color:#7d684e;
                         font-size:13px;
                     ">
                         Decision risk classification
@@ -1773,7 +1430,7 @@ if analyze:
                     margin-top:12px;
                     height:10px;
                     width:100%;
-                    background:#182238;
+                    background:#eadcc8;
                     border-radius:20px;
                     overflow:hidden;
                 ">
@@ -1783,9 +1440,9 @@ if analyze:
                         height:100%;
                         background:linear-gradient(
                             90deg,
-                            #ff4d5a,
-                            #ffc857,
-                            #35e58a
+                            #d39b2d,
+                            #e4bb62,
+                            #7e9d57
                         );
                         border-radius:20px;
                     ">
@@ -1797,7 +1454,7 @@ if analyze:
                     display:flex;
                     justify-content:space-between;
                     margin-top:8px;
-                    color:#7188b2;
+                    color:#8f7a5f;
                     font-size:12px;
                 ">
                     <span>0%</span>
@@ -1846,7 +1503,7 @@ if analyze:
 
                     <div style="
                         margin-top:8px;
-                        color:#9eb2d5;
+                        color:#7d684e;
                         font-size:13px;
                     ">
                         Transaction data evaluated
@@ -1871,7 +1528,7 @@ if analyze:
 
                     <div style="
                         margin-top:8px;
-                        color:#9eb2d5;
+                        color:#7d684e;
                         font-size:13px;
                     ">
                         ML predicts recovery probability
@@ -1896,7 +1553,7 @@ if analyze:
 
                     <div style="
                         margin-top:8px;
-                        color:#9eb2d5;
+                        color:#7d684e;
                         font-size:13px;
                     ">
                         Recovery engine selects action
@@ -1922,7 +1579,7 @@ if analyze:
 
                     <div style="
                         margin-top:8px;
-                        color:#ffffff;
+                        color:#3a2e22;
                         font-size:14px;
                         font-weight:700;
                     ">
@@ -1954,14 +1611,14 @@ if analyze:
                     margin-top:8px;
                     font-size:22px;
                     font-weight:800;
-                    color:#ffffff;
+                    color:#3a2e22;
                 ">
                     {action}
                 </div>
 
                 <div style="
                     margin-top:6px;
-                    color:#8fa8d6;
+                    color:#7d684e;
                     font-size:14px;
                 ">
                     Execution status: {execution_status}
@@ -2001,7 +1658,7 @@ if analyze:
                     <div style="
                         margin-top:14px;
                         height:7px;
-                        background:#182238;
+                        background:#eadcc8;
                         border-radius:10px;
                         overflow:hidden;
                     ">
@@ -2036,7 +1693,7 @@ if analyze:
 
                     <div style="
                         margin-top:14px;
-                        color:#8fa8d6;
+                        color:#7d684e;
                         font-size:13px;
                     ">
                         Successful payment history
@@ -2058,7 +1715,7 @@ if analyze:
 
                     <div style="
                         margin-top:14px;
-                        color:#8fa8d6;
+                        color:#7d684e;
                         font-size:13px;
                     ">
                         Historical failure attempts
@@ -2080,7 +1737,7 @@ if analyze:
 
                     <div style="
                         margin-top:14px;
-                        color:#8fa8d6;
+                        color:#7d684e;
                         font-size:13px;
                     ">
                         Attempts already made
@@ -2102,7 +1759,7 @@ if analyze:
 
                     <div style="
                         margin-top:14px;
-                        color:#8fa8d6;
+                        color:#7d684e;
                         font-size:13px;
                     ">
                         Primary transaction failure signal
@@ -2124,7 +1781,7 @@ if analyze:
 
                     <div style="
                         margin-top:14px;
-                        color:#8fa8d6;
+                        color:#7d684e;
                         font-size:13px;
                     ">
                         Transaction payment channel
@@ -2154,14 +1811,14 @@ if analyze:
 
                 <div style="
                     margin-top:10px;
-                    color:#dbe5f7;
+                    color:#4b3d2f;
                     font-size:16px;
                     line-height:1.6;
                 ">
                     RecoverAI evaluated the transaction using its
                     historical payment behaviour, failure characteristics,
                     retry history and recovery probability before selecting
-                    <strong style="color:#ffffff;">
+                    <strong style="color:#3a2e22;">
                         {action}
                     </strong>.
                 </div>
