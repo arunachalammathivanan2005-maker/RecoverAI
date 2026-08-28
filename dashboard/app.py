@@ -2383,12 +2383,39 @@ div[data-testid="stNumberInput"] button:hover {
 }
 
 /* Selectbox */
-div[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+/* ==========================================================
+   SELECT BOXES — FORCE DARK THEME
+   ========================================================== */
+
+div[data-baseweb="select"] {
+    width: 100% !important;
+}
+
+div[data-baseweb="select"] > div {
+    background-color: #151c2d !important;
     background: #151c2d !important;
-    color: #f4f7ff !important;
     border: 1px solid #293653 !important;
     border-radius: 10px !important;
+    color: #f4f7ff !important;
     min-height: 44px !important;
+}
+
+div[data-baseweb="select"] [role="combobox"] {
+    background-color: #151c2d !important;
+    color: #f4f7ff !important;
+}
+
+div[data-baseweb="select"] [data-baseweb="select"] {
+    background-color: #151c2d !important;
+}
+
+div[data-baseweb="select"] span {
+    color: #f4f7ff !important;
+}
+
+div[data-baseweb="select"] svg {
+    color: #9fb3d8 !important;
+    fill: #9fb3d8 !important;
 }
 
 /* Selectbox text */
