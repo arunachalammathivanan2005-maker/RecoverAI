@@ -38,6 +38,264 @@ st.set_page_config(
     initial_sidebar_state="collapsed",
 )
 
+# ============================================================
+# DARK MODE SWITCH
+# ============================================================
+
+if "dark_mode" not in st.session_state:
+    st.session_state.dark_mode = False
+
+st.toggle(
+    "🌙 Dark Mode",
+    key="dark_mode",
+    help="Switch between Light and Dark themes"
+)
+
+
+# ============================================================
+# DARK BLUE THEME
+# ============================================================
+
+if st.session_state.dark_mode:
+
+    st.markdown(
+        """
+        <style>
+
+        .stApp {
+            background:
+                radial-gradient(
+                    circle at 10% 5%,
+                    rgba(40, 90, 180, 0.25),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(100, 50, 180, 0.18),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #050914,
+                    #091326,
+                    #050914
+                ) !important;
+
+            color: #f5f7ff !important;
+        }
+
+        [data-testid="stAppViewContainer"] {
+            background: transparent !important;
+        }
+
+        .stApp p,
+        .stApp span,
+        .stApp label,
+        .stApp h1,
+        .stApp h2,
+        .stApp h3 {
+            color: #f5f7ff !important;
+        }
+
+        .hero {
+            background:
+                linear-gradient(
+                    145deg,
+                    #101d38,
+                    #091326
+                ) !important;
+
+            border: 1px solid #315991 !important;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.45) !important;
+        }
+
+        .hero-title {
+            color: #ffffff !important;
+        }
+
+        .hero-title span {
+            color: #79a9ff !important;
+        }
+
+        .hero-subtitle {
+            color: #9bbcff !important;
+        }
+
+        .section-title {
+            color: #ffffff !important;
+        }
+
+        .kpi-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    #101c33,
+                    #0a1326
+                ) !important;
+
+            border: 1px solid #263f69 !important;
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,.40) !important;
+        }
+
+        .kpi-label {
+            color: #7faeff !important;
+        }
+
+        .kpi-value {
+            color: #ffffff !important;
+        }
+
+        .kpi-description {
+            color: #8ca3c7 !important;
+        }
+
+        .panel,
+        .analysis-card,
+        .ai-result {
+            background:
+                linear-gradient(
+                    145deg,
+                    #0c172c,
+                    #080f20
+                ) !important;
+
+            border: 1px solid #29466f !important;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,.42) !important;
+        }
+
+        .action-card {
+            background: #111c30 !important;
+            border: 1px solid #29415f !important;
+        }
+
+        .action-label {
+            color: #82a7dc !important;
+        }
+
+        .action-value {
+            color: #ffffff !important;
+        }
+
+        .probability-label {
+            color: #78a9ff !important;
+        }
+
+        .probability {
+            color: #ffffff !important;
+        }
+
+        .recovery-level {
+            color: #9ab8e5 !important;
+        }
+
+        div[data-testid="stNumberInput"] > div {
+            background: #151e31 !important;
+            background-color: #151e31 !important;
+            border: 1px solid #385780 !important;
+        }
+
+        div[data-testid="stNumberInput"] input {
+            background: transparent !important;
+            color: #ffffff !important;
+            font-weight: 700 !important;
+        }
+
+        div[data-testid="stNumberInput"] button {
+            background: #1c2b45 !important;
+            color: #dce9ff !important;
+        }
+
+        div[data-testid="stSelectbox"]
+        [data-baseweb="select"] > div {
+            background: #151e31 !important;
+            background-color: #151e31 !important;
+            border: 1px solid #385780 !important;
+        }
+
+        div[data-testid="stSelectbox"]
+        [data-baseweb="select"]
+        span {
+            color: #ffffff !important;
+        }
+
+        div[data-testid="stSelectbox"]
+        [data-baseweb="select"]
+        svg {
+            color: #8db7ff !important;
+            fill: #8db7ff !important;
+        }
+
+        div[data-testid="stNumberInput"] label,
+        div[data-testid="stSelectbox"] label,
+        div[data-testid="stSlider"] label {
+            color: #91b8f0 !important;
+            font-weight: 750 !important;
+        }
+
+        div[data-testid="stSlider"]
+        [data-testid="stSliderThumbValue"] {
+            color: #ff5260 !important;
+            font-weight: 850 !important;
+        }
+
+        .stButton > button {
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff4f5e,
+                    #e83f50
+                ) !important;
+
+            color: white !important;
+
+            border: 1px solid #ff6875 !important;
+
+            box-shadow:
+                0 12px 30px rgba(255,60,80,.25) !important;
+        }
+
+        @media (max-width: 768px) {
+
+            .block-container {
+                padding-left: .7rem !important;
+                padding-right: .7rem !important;
+            }
+
+            .hero {
+                padding: 24px 18px !important;
+            }
+
+            .hero-title {
+                font-size: 30px !important;
+            }
+
+            .kpi-value {
+                font-size: 24px !important;
+            }
+
+            .probability {
+                font-size: 38px !important;
+            }
+
+            .panel,
+            .analysis-card,
+            .ai-result {
+                padding: 16px !important;
+            }
+        }
+
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+
 
 # ============================================================
 # 4. HTML HELPER
@@ -478,10 +736,318 @@ div[data-testid="stAlert"] {
     div[data-testid="stSelectbox"] span { font-size: 13px !important; }
 }
 </style>
+
+
 """,
     unsafe_allow_html=True
+
 )
 
+
+
+# ============================================================
+# DARK BLUE THEME
+# ============================================================
+
+if st.session_state.dark_mode:
+
+    st.markdown(
+        """
+        <style>
+
+        /* PAGE */
+        .stApp {
+            background:
+                radial-gradient(
+                    circle at 10% 5%,
+                    rgba(40, 90, 180, 0.25),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(100, 50, 180, 0.18),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #050914,
+                    #091326,
+                    #050914
+                ) !important;
+
+            color: #f5f7ff !important;
+        }
+
+
+        /* MAIN CONTAINER */
+        [data-testid="stAppViewContainer"] {
+            background: transparent !important;
+        }
+
+
+        /* ALL TEXT */
+        .stApp p,
+        .stApp span,
+        .stApp label,
+        .stApp h1,
+        .stApp h2,
+        .stApp h3 {
+            color: #f5f7ff !important;
+        }
+
+
+        /* HERO */
+        .hero {
+            background:
+                linear-gradient(
+                    145deg,
+                    #101d38,
+                    #091326
+                ) !important;
+
+            border: 1px solid #315991 !important;
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.45) !important;
+        }
+
+        .hero-title {
+            color: #ffffff !important;
+        }
+
+        .hero-title span {
+            color: #79a9ff !important;
+        }
+
+        .hero-subtitle {
+            color: #9bbcff !important;
+        }
+
+
+        /* STATUS */
+        .status-pill {
+            background: rgba(20,150,110,.15) !important;
+            border: 1px solid #1ca878 !important;
+            color: #50e6ad !important;
+        }
+
+
+        /* SECTION TITLES */
+        .section-title {
+            color: #ffffff !important;
+        }
+
+
+        /* KPI CARDS */
+        .kpi-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    #101c33,
+                    #0a1326
+                ) !important;
+
+            border: 1px solid #263f69 !important;
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,.40) !important;
+        }
+
+        .kpi-card:hover {
+            border-color: #4c86e8 !important;
+            transform: translateY(-3px);
+        }
+
+        .kpi-label {
+            color: #7faeff !important;
+        }
+
+        .kpi-value {
+            color: #ffffff !important;
+        }
+
+        .kpi-description {
+            color: #8ca3c7 !important;
+        }
+
+
+        /* PANELS */
+        .panel,
+        .analysis-card,
+        .ai-result {
+            background:
+                linear-gradient(
+                    145deg,
+                    #0c172c,
+                    #080f20
+                ) !important;
+
+            border: 1px solid #29466f !important;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,.42) !important;
+        }
+
+
+        /* ACTION CARDS */
+        .action-card {
+            background: #111c30 !important;
+            border: 1px solid #29415f !important;
+            box-shadow: 0 8px 20px rgba(0,0,0,.3) !important;
+        }
+
+        .action-label {
+            color: #82a7dc !important;
+        }
+
+        .action-value {
+            color: #ffffff !important;
+        }
+
+
+        /* AI PROBABILITY */
+        .probability-label {
+            color: #78a9ff !important;
+        }
+
+        .probability {
+            color: #ffffff !important;
+        }
+
+        .recovery-level {
+            color: #9ab8e5 !important;
+        }
+
+
+        /* NUMBER INPUT */
+        div[data-testid="stNumberInput"] > div {
+            background: #151e31 !important;
+            background-color: #151e31 !important;
+            border: 1px solid #385780 !important;
+        }
+
+        div[data-testid="stNumberInput"] input {
+            background: transparent !important;
+            color: #ffffff !important;
+            font-weight: 700 !important;
+        }
+
+
+        /* PLUS / MINUS */
+        div[data-testid="stNumberInput"] button {
+            background: #1c2b45 !important;
+            color: #dce9ff !important;
+        }
+
+        div[data-testid="stNumberInput"] button:hover {
+            background: #2c4770 !important;
+            color: #ffffff !important;
+        }
+
+
+        /* SELECT BOX */
+        div[data-testid="stSelectbox"]
+        [data-baseweb="select"] > div {
+            background: #151e31 !important;
+            background-color: #151e31 !important;
+            border: 1px solid #385780 !important;
+        }
+
+        div[data-testid="stSelectbox"]
+        [data-baseweb="select"]
+        span {
+            color: #ffffff !important;
+        }
+
+        div[data-testid="stSelectbox"]
+        [data-baseweb="select"]
+        svg {
+            color: #8db7ff !important;
+            fill: #8db7ff !important;
+        }
+
+
+        /* INPUT LABELS */
+        div[data-testid="stNumberInput"] label,
+        div[data-testid="stSelectbox"] label,
+        div[data-testid="stSlider"] label {
+            color: #91b8f0 !important;
+            font-weight: 750 !important;
+        }
+
+
+        /* SLIDER */
+        div[data-testid="stSlider"]
+        [data-testid="stSliderThumbValue"] {
+            color: #ff5260 !important;
+            font-weight: 850 !important;
+        }
+
+
+        /* ANALYZE BUTTON */
+        .stButton > button {
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff4f5e,
+                    #e83f50
+                ) !important;
+
+            color: white !important;
+
+            border: 1px solid #ff6875 !important;
+
+            box-shadow:
+                0 12px 30px rgba(255,60,80,.25) !important;
+        }
+
+        .stButton > button:hover {
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff6875,
+                    #ed4051
+                ) !important;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+
+            .block-container {
+                padding-left: .7rem !important;
+                padding-right: .7rem !important;
+            }
+
+            .hero {
+                padding: 24px 18px !important;
+            }
+
+            .hero-title {
+                font-size: 30px !important;
+            }
+
+            .kpi-value {
+                font-size: 24px !important;
+            }
+
+            .probability {
+                font-size: 38px !important;
+            }
+
+            .panel,
+            .analysis-card,
+            .ai-result {
+                padding: 16px !important;
+            }
+        }
+
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
 # ============================================================
 # 8. HERO
