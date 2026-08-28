@@ -2341,7 +2341,7 @@ st.markdown("""
     }
 }
 /* ==========================================================
-   STREAMLIT INPUTS — CLEAN DARK UI
+   STREAMLIT INPUTS — FINAL
    ========================================================== */
 
 /* Labels */
@@ -2354,7 +2354,7 @@ div[data-testid="stSlider"] label {
     margin-bottom: 6px !important;
 }
 
-/* Number input */
+/* Number input outer box */
 div[data-testid="stNumberInput"] > div {
     background: #151c2d !important;
     border: 1px solid #293653 !important;
@@ -2362,8 +2362,9 @@ div[data-testid="stNumberInput"] > div {
     min-height: 44px !important;
 }
 
+/* Number input field */
 div[data-testid="stNumberInput"] input {
-    background: transparent !important;
+    background: #151c2d !important;
     color: #f4f7ff !important;
     border: none !important;
     font-size: 14px !important;
@@ -2381,7 +2382,7 @@ div[data-testid="stNumberInput"] button:hover {
     background: #263554 !important;
 }
 
-/* Select boxes */
+/* Selectbox */
 div[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
     background: #151c2d !important;
     color: #f4f7ff !important;
@@ -2390,12 +2391,12 @@ div[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
     min-height: 44px !important;
 }
 
+/* Selectbox text */
 div[data-testid="stSelectbox"] div[data-baseweb="select"] span {
     color: #f4f7ff !important;
-    font-size: 14px !important;
 }
 
-/* Select arrow */
+/* Selectbox arrow */
 div[data-testid="stSelectbox"] svg {
     color: #9fb3d8 !important;
 }
@@ -2405,7 +2406,7 @@ div[data-testid="stSlider"] {
     padding-top: 4px !important;
 }
 
-div[data-testid="stSlider"] div[data-testid="stSliderThumbValue"] {
+div[data-testid="stSlider"] [data-testid="stSliderThumbValue"] {
     color: #ff5258 !important;
     font-weight: 800 !important;
 }
@@ -2426,12 +2427,13 @@ div[data-testid="stSlider"] div[data-testid="stSliderThumbValue"] {
     background: #ff6269 !important;
 }
 
-/* Spacing */
+/* Compact spacing */
 div[data-testid="stNumberInput"],
 div[data-testid="stSelectbox"],
 div[data-testid="stSlider"] {
     margin-bottom: 8px !important;
 }
-
 </style>
-""", unsafe_allow_html=True)
+""",
+unsafe_allow_html=True
+)
