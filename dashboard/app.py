@@ -2213,3 +2213,225 @@ render_html(
     </div>
     """
 )
+st.markdown("""
+<style>
+/* ==========================================================
+   FINAL UI POLISH
+   ========================================================== */
+
+/* Overall page spacing */
+.block-container {
+    max-width: 1400px !important;
+    padding-top: 1rem !important;
+    padding-bottom: 3rem !important;
+}
+
+/* Hero */
+.hero {
+    padding: 38px 42px !important;
+    margin-bottom: 28px !important;
+    border-radius: 24px !important;
+}
+
+/* Hero typography */
+.hero-title {
+    font-size: 48px !important;
+}
+
+.hero-subtitle {
+    font-size: 18px !important;
+    margin-bottom: 18px !important;
+}
+
+/* Section headings */
+.section-title {
+    font-size: 24px !important;
+    margin-top: 14px !important;
+    margin-bottom: 16px !important;
+}
+
+/* KPI cards */
+.kpi-card {
+    min-height: 135px !important;
+    padding: 22px !important;
+    border-radius: 18px !important;
+}
+
+.kpi-value {
+    font-size: 32px !important;
+}
+
+/* General panels */
+.panel {
+    padding: 24px !important;
+    border-radius: 20px !important;
+}
+
+/* AI result */
+.ai-result {
+    padding: 28px !important;
+    border-radius: 22px !important;
+}
+
+/* Probability */
+.probability {
+    font-size: 52px !important;
+}
+
+/* Action cards */
+.action-card {
+    padding: 15px 18px !important;
+    margin-top: 9px !important;
+}
+
+/* Analysis */
+.analysis-card {
+    padding: 22px !important;
+    margin-top: 18px !important;
+    border-radius: 19px !important;
+}
+
+/* Footer */
+.footer {
+    margin-top: 35px !important;
+}
+
+/* ==========================================================
+   RESPONSIVE LAYOUT
+   ========================================================== */
+
+@media (max-width: 900px) {
+
+    .block-container {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+
+    .hero {
+        padding: 28px !important;
+    }
+
+    .hero-title {
+        font-size: 38px !important;
+    }
+
+    .hero-subtitle {
+        font-size: 16px !important;
+    }
+
+    .section-title {
+        font-size: 21px !important;
+    }
+
+    .kpi-card {
+        min-height: 115px !important;
+        padding: 18px !important;
+    }
+
+    .kpi-value {
+        font-size: 27px !important;
+    }
+
+    .ai-result {
+        padding: 22px !important;
+    }
+
+    .probability {
+        font-size: 44px !important;
+    }
+}
+/* ==========================================================
+   STREAMLIT INPUTS — CLEAN DARK UI
+   ========================================================== */
+
+/* Labels */
+div[data-testid="stNumberInput"] label,
+div[data-testid="stSelectbox"] label,
+div[data-testid="stSlider"] label {
+    color: #8fa6cc !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    margin-bottom: 6px !important;
+}
+
+/* Number input */
+div[data-testid="stNumberInput"] > div {
+    background: #151c2d !important;
+    border: 1px solid #293653 !important;
+    border-radius: 10px !important;
+    min-height: 44px !important;
+}
+
+div[data-testid="stNumberInput"] input {
+    background: transparent !important;
+    color: #f4f7ff !important;
+    border: none !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+}
+
+/* Number input buttons */
+div[data-testid="stNumberInput"] button {
+    background: #1c263a !important;
+    color: #dce7ff !important;
+    border: none !important;
+}
+
+div[data-testid="stNumberInput"] button:hover {
+    background: #263554 !important;
+}
+
+/* Select boxes */
+div[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
+    background: #151c2d !important;
+    color: #f4f7ff !important;
+    border: 1px solid #293653 !important;
+    border-radius: 10px !important;
+    min-height: 44px !important;
+}
+
+div[data-testid="stSelectbox"] div[data-baseweb="select"] span {
+    color: #f4f7ff !important;
+    font-size: 14px !important;
+}
+
+/* Select arrow */
+div[data-testid="stSelectbox"] svg {
+    color: #9fb3d8 !important;
+}
+
+/* Slider */
+div[data-testid="stSlider"] {
+    padding-top: 4px !important;
+}
+
+div[data-testid="stSlider"] div[data-testid="stSliderThumbValue"] {
+    color: #ff5258 !important;
+    font-weight: 800 !important;
+}
+
+/* Analyze button */
+.stButton > button {
+    width: 100% !important;
+    height: 48px !important;
+    border-radius: 10px !important;
+    background: #ff4d55 !important;
+    color: white !important;
+    border: none !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+}
+
+.stButton > button:hover {
+    background: #ff6269 !important;
+}
+
+/* Spacing */
+div[data-testid="stNumberInput"],
+div[data-testid="stSelectbox"],
+div[data-testid="stSlider"] {
+    margin-bottom: 8px !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
