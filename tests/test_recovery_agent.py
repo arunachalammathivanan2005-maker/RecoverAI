@@ -1,5 +1,7 @@
-from src.agent.recovery_agent import analyze_transaction
-
+from src.agent.recovery_agent import (
+    analyze_transaction,
+    get_recovery_action
+)
 
 def test_recovery_agent():
 
@@ -37,5 +39,131 @@ def test_recovery_agent():
         "REQUEST_CARD_UPDATE",
         "STOP"
     ]
+
+    def test_recovery_action_policy():
+        """
+        Verify RecoverAI chooses the correct recovery
+        strategy for different probability/failure combinations.
+        """
+
+        # High probability scenarios
+        assert (
+                get_recovery_action(0.85, "Network Timeout")
+                == "RETRY_NOW"
+        )
+
+        assert (
+                get_recovery_action(0.85, "Gateway Error")
+                == "RETRY_WITH_ALTERNATE_GATEWAY"
+        )
+
+        assert (
+                get_recovery_action(0.85, "Expired Card")
+                == "REQUEST_CARD_UPDATE"
+        )
+
+        assert (
+                get_recovery_action(0.85, "Authentication Failure")
+                == "REQUEST_AUTHENTICATION"
+        )
+
+        assert (
+                get_recovery_action(0.85, "Insufficient Funds")
+                == "SUGGEST_ALTERNATE_PAYMENT"
+        )
+
+        # Medium probability scenarios
+        assert (
+                get_recovery_action(0.60, "Network Timeout")
+                == "RETRY_LATER"
+        )
+
+        assert (
+                get_recovery_action(0.60, "Gateway Error")
+                == "RETRY_WITH_ALTERNATE_GATEWAY"
+        )
+
+        assert (
+                get_recovery_action(0.60, "Authentication Failure")
+                == "REQUEST_AUTHENTICATION"
+        )
+
+        assert (
+                get_recovery_action(0.60, "Insufficient Funds")
+                == "SUGGEST_ALTERNATE_PAYMENT"
+        )
+
+        assert (
+                get_recovery_action(0.60, "Expired Card")
+                == "REQUEST_CARD_UPDATE"
+        )
+
+        # Low probability
+        assert (
+                get_recovery_action(0.30, "Network Timeout")
+                == "STOP"
+        )
+
+        assert (
+                get_recovery_action(0.30, "Gateway Error")
+                == "STOP"
+        )
+
+        def test_recovery_action_policy():
+            """
+            Verify RecoverAI recovery decisions for
+            different probability and failure combinations.
+            """
+
+            # High probability
+            assert get_recovery_action(
+                0.85, "Network Timeout"
+            ) == "RETRY_NOW"
+
+            assert get_recovery_action(
+                0.85, "Gateway Error"
+            ) == "RETRY_WITH_ALTERNATE_GATEWAY"
+
+            assert get_recovery_action(
+                0.85, "Expired Card"
+            ) == "REQUEST_CARD_UPDATE"
+
+            assert get_recovery_action(
+                0.85, "Authentication Failure"
+            ) == "REQUEST_AUTHENTICATION"
+
+            assert get_recovery_action(
+                0.85, "Insufficient Funds"
+            ) == "SUGGEST_ALTERNATE_PAYMENT"
+
+            # Medium probability
+            assert get_recovery_action(
+                0.60, "Network Timeout"
+            ) == "RETRY_LATER"
+
+            assert get_recovery_action(
+                0.60, "Gateway Error"
+            ) == "RETRY_WITH_ALTERNATE_GATEWAY"
+
+            assert get_recovery_action(
+                0.60, "Authentication Failure"
+            ) == "REQUEST_AUTHENTICATION"
+
+            assert get_recovery_action(
+                0.60, "Insufficient Funds"
+            ) == "SUGGEST_ALTERNATE_PAYMENT"
+
+            assert get_recovery_action(
+                0.60, "Expired Card"
+            ) == "REQUEST_CARD_UPDATE"
+
+            # Low probability
+            assert get_recovery_action(
+                0.30, "Network Timeout"
+            ) == "STOP"
+
+            assert get_recovery_action(
+                0.30, "Gateway Error"
+            ) == "STOP"
 if __name__ == "__main__":
     test_recovery_agent()

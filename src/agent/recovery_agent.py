@@ -33,33 +33,64 @@ def predict_recovery(transaction):
 
 def get_recovery_action(probability, failure_reason):
     """
-    Decide the best recovery action.
+    Decide the safest recovery action using
+    ML recovery probability and failure reason.
     """
 
+    # Normalize the failure reason
+    reason = str(failure_reason).strip().lower()
+
+    # ------------------------------------------------------------
+    # HIGH RECOVERY PROBABILITY
+    # ------------------------------------------------------------
     if probability >= 0.75:
-        return "RETRY_NOW"
 
-    elif probability >= 0.50:
-
-        if failure_reason == "Network Timeout":
-            return "RETRY_LATER"
-
-        elif failure_reason == "Gateway Error":
-            return "RETRY_WITH_ALTERNATE_GATEWAY"
-
-        elif failure_reason == "Authentication Failure":
-            return "REQUEST_AUTHENTICATION"
-
-        elif failure_reason == "Insufficient Funds":
-            return "SUGGEST_ALTERNATE_PAYMENT"
-
-        elif failure_reason == "Expired Card":
+        if reason == "expired card":
             return "REQUEST_CARD_UPDATE"
 
-        elif failure_reason == "Bank Decline":
+        elif reason in ["insufficient funds", "bank decline"]:
             return "SUGGEST_ALTERNATE_PAYMENT"
 
-    return "STOP"
+        elif reason == "authentication failure":
+            return "REQUEST_AUTHENTICATION"
+
+        elif reason == "gateway error":
+            return "RETRY_WITH_ALTERNATE_GATEWAY"
+
+        elif reason == "network timeout":
+            return "RETRY_NOW"
+
+        else:
+            return "RETRY_NOW"
+
+    # ------------------------------------------------------------
+    # MEDIUM RECOVERY PROBABILITY
+    # ------------------------------------------------------------
+    elif probability >= 0.50:
+
+        if reason == "network timeout":
+            return "RETRY_LATER"
+
+        elif reason == "gateway error":
+            return "RETRY_WITH_ALTERNATE_GATEWAY"
+
+        elif reason == "authentication failure":
+            return "REQUEST_AUTHENTICATION"
+
+        elif reason in ["insufficient funds", "bank decline"]:
+            return "SUGGEST_ALTERNATE_PAYMENT"
+
+        elif reason == "expired card":
+            return "REQUEST_CARD_UPDATE"
+
+        else:
+            return "RETRY_LATER"
+
+    # ------------------------------------------------------------
+    # LOW RECOVERY PROBABILITY
+    # ------------------------------------------------------------
+    else:
+        return "STOP"
 
 
 def analyze_transaction(transaction, failure_reason):
