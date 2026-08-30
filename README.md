@@ -2,6 +2,8 @@
 
 ## Payment Recovery System
 
+[🚀 Live Demo](https://recoverai-arun.streamlit.app/)
+
 RecoverAI is a payment recovery decision system designed to help determine what action should be taken when a payment fails.
 
 Instead of treating every failed payment the same way, RecoverAI analyzes transaction details, estimates the probability of recovery, and recommends an appropriate next action.
@@ -206,27 +208,27 @@ The final action depends on the transaction characteristics and the recovery pre
 
 ## Key Features
 
-### 🤖 Machine Learning
+### Machine Learning
 
 Uses machine learning techniques to estimate the probability that a failed payment can be successfully recovered.
 
-### 💳 Payment Recovery
+### Payment Recovery
 
 Provides an actionable recommendation instead of simply identifying that a payment has failed.
 
-### 📊 Interactive Dashboard
+### Interactive Dashboard
 
 The Streamlit dashboard allows users to interact with the recovery system and view prediction results.
 
-### 📈 Recovery Analytics
+### Recovery Analytics
 
 Provides insights into recovery probabilities, recovery levels, and recommended actions.
 
-### 🧪 Automated Testing
+### Automated Testing
 
 Core components are tested using Python's testing framework to verify that the recovery workflow behaves as expected.
 
-### 🌓 Light & Dark Mode
+### Light & Dark Mode
 
 Provides both light and dark interface options for users working in different environments and schedules.
 
