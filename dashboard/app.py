@@ -1,3 +1,4 @@
+
 import sys
 import textwrap
 from pathlib import Path
@@ -43,7 +44,7 @@ st.set_page_config(
 # ============================================================
 
 if "dark_mode" not in st.session_state:
-    st.session_state.dark_mode = False
+    st.session_state.dark_mode = True
 
 st.toggle(
     "🌙 Dark Mode",
@@ -1043,6 +1044,120 @@ if st.session_state.dark_mode:
                 padding: 16px !important;
             }
         }
+
+        /* ======================================================
+           FINAL DARK MODE READABILITY OVERRIDES
+           Keep the dashboard dark blue and make content clear.
+           These rules intentionally use !important so they also
+           override the inline light-theme colors used in HTML.
+           ====================================================== */
+
+        /* All dashboard text */
+        .stApp,
+        .stApp p,
+        .stApp span,
+        .stApp label,
+        .stApp div,
+        .stApp h1,
+        .stApp h2,
+        .stApp h3,
+        .stApp strong {
+            color: #f7faff !important;
+        }
+
+        /* KPI cards */
+        .kpi-label,
+        .action-label,
+        .probability-label {
+            color: #8fbaff !important;
+        }
+
+        .kpi-value,
+        .kpi-description {
+            color: #ffffff !important;
+        }
+
+        /* Main result */
+        .probability {
+            color: #ffffff !important;
+        }
+
+        .recovery-level {
+            color: #b9d2f5 !important;
+        }
+
+        /* Action / information cards */
+        .action-card,
+        .action-card * {
+            color: #ffffff !important;
+        }
+
+        .action-card .action-label {
+            color: #8fbaff !important;
+        }
+
+        .action-card .action-value {
+            color: #ffffff !important;
+        }
+
+        /* Override inline brown text inside generated HTML */
+        .analysis-card [style*="color:#4b3d2f"],
+        .analysis-card [style*="color:#3a2e22"],
+        .analysis-card [style*="color:#7d684e"],
+        .analysis-card [style*="color:#7d684e"],
+        .analysis-card [style*="color:#8f7a5f"],
+        .analysis-card [style*="color:#a9bbd8"] {
+            color: #ffffff !important;
+        }
+
+        /* Inline progress scale text */
+        .analysis-card [style*="font-size:12px"] span,
+        .analysis-card [style*="font-size:13px"] {
+            color: #dce9ff !important;
+        }
+
+        /* Decision pipeline */
+        .analysis-card [style*="DECISION PIPELINE"] {
+            color: #8fbaff !important;
+        }
+
+        /* Pipeline text and final decision */
+        .analysis-card strong {
+            color: #ffffff !important;
+        }
+
+        /* Progress-bar backgrounds */
+        .analysis-card [style*="background:#eadcc8"] {
+            background: #1b2c49 !important;
+        }
+
+        /* Recovery potential / summary panels */
+        .analysis-card [style*="rgba(20,35,70,0.55)"],
+        .analysis-card [style*="rgba(72,104,255,0.10)"] {
+            color: #ffffff !important;
+        }
+
+        /* Streamlit alerts */
+        div[data-testid="stAlert"],
+        div[data-testid="stAlert"] p,
+        div[data-testid="stAlert"] span {
+            color: #ffffff !important;
+        }
+
+        /* Slider value */
+        div[data-testid="stSlider"] [data-testid="stSliderThumbValue"] {
+            color: #ffffff !important;
+        }
+
+        /* Footer */
+        .footer,
+        .footer * {
+            color: #9db8dc !important;
+        }
+
+        /* ======================================================
+           END DARK MODE READABILITY OVERRIDES
+           ====================================================== */
 
         </style>
         """,
@@ -2609,3 +2724,716 @@ render_html(
     </div>
     """
 )
+# ============================================================
+# FINAL DARK MODE TEXT OVERRIDES
+# ============================================================
+
+if st.session_state.dark_mode:
+
+    st.markdown(
+        """
+        <style>
+
+        /* ==================================================
+           RecoverAI Dark Mode - Final Text Readability
+           ================================================== */
+
+        /* Main analysis text */
+        .analysis-card {
+            color: #ffffff !important;
+        }
+
+        .analysis-card p,
+        .analysis-card div,
+        .analysis-card span,
+        .analysis-card strong {
+            color: #ffffff !important;
+        }
+
+        /* Keep section labels light blue */
+        .analysis-card .section-title {
+            color: #ffffff !important;
+        }
+
+        .analysis-card .action-label,
+        .analysis-card .kpi-label,
+        .analysis-card .probability-label {
+            color: #82b5ff !important;
+        }
+
+        /* Main values */
+        .analysis-card .action-value,
+        .analysis-card .kpi-value,
+        .analysis-card .probability {
+            color: #ffffff !important;
+        }
+
+        /* Override old inline brown text */
+        .analysis-card div[style*="#4b3d2f"],
+        .analysis-card div[style*="#4b3822"],
+        .analysis-card div[style*="#3a2e22"],
+        .analysis-card div[style*="#7d684e"],
+        .analysis-card div[style*="#7d684d"],
+        .analysis-card div[style*="#725f48"] {
+            color: #ffffff !important;
+        }
+
+        /* Override brown inline text on strong elements */
+        .analysis-card strong[style*="#3a2e22"],
+        .analysis-card strong[style*="#4b3d2f"] {
+            color: #ffffff !important;
+        }
+
+        /* Decision pipeline */
+        .analysis-card div[style*="color:#a9bbd8"] {
+            color: #ffffff !important;
+        }
+
+        .analysis-card span[style*="#b47d1c"] {
+            color: #8db7ff !important;
+        }
+
+        /* AI assessment */
+        .analysis-card div[style*="rgba(72,104,255,0.10)"] {
+            color: #ffffff !important;
+        }
+
+        /* Recovery analytics descriptions */
+        .analysis-card div[style*="font-size:13px"] {
+            color: #ffffff !important;
+        }
+
+        /* Current recovery decision */
+        .analysis-card div[style*="font-size:22px"] {
+            color: #ffffff !important;
+        }
+
+        /* Execution status */
+        .analysis-card div[style*="font-size:14px"] {
+            color: #ffffff !important;
+        }
+
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+    # ============================================================
+    # FINAL DARK MODE - FORCE ALL DASHBOARD TEXT TO WHITE
+    # ============================================================
+
+    if st.session_state.dark_mode:
+        st.markdown(
+            """
+            <style>
+
+            /* ================================================
+               FORCE TEXT INSIDE ANALYSIS CARDS TO WHITE
+               ================================================ */
+
+            .analysis-card div,
+            .analysis-card p,
+            .analysis-card span,
+            .analysis-card strong {
+                color: #ffffff !important;
+            }
+
+
+            /* ================================================
+               SECTION TITLES
+               ================================================ */
+
+            .analysis-card .section-title {
+                color: #ffffff !important;
+            }
+
+
+            /* ================================================
+               BLUE LABELS
+               ================================================ */
+
+            .analysis-card .action-label,
+            .analysis-card .kpi-label,
+            .analysis-card .probability-label {
+                color: #82b5ff !important;
+            }
+
+
+            /* ================================================
+               MAIN VALUES
+               ================================================ */
+
+            .analysis-card .action-value,
+            .analysis-card .kpi-value,
+            .analysis-card .probability {
+                color: #ffffff !important;
+            }
+
+
+            /* ================================================
+               AI REASONING TEXT
+               ================================================ */
+
+            .analysis-card .action-card > div:not(.action-label):not(.action-value) {
+                color: #ffffff !important;
+            }
+
+
+            /* ================================================
+               DECISION PIPELINE
+               ================================================ */
+
+            .analysis-card strong {
+                color: #ffffff !important;
+            }
+
+            .analysis-card span {
+                color: #ffffff !important;
+            }
+
+
+            /* Make pipeline arrows blue */
+            .analysis-card span[style*="b47d1c"],
+            .analysis-card span[style*="B47D1C"] {
+                color: #79a9ff !important;
+            }
+
+
+            /* ================================================
+               INLINE BROWN COLORS - OVERRIDE THEM
+               ================================================ */
+
+            .analysis-card [style*="color"] {
+                color: #ffffff !important;
+            }
+
+
+            /* Restore blue labels AFTER inline override */
+            .analysis-card .action-label {
+                color: #82b5ff !important;
+            }
+
+            .analysis-card .section-title {
+                color: #ffffff !important;
+            }
+
+            .analysis-card .action-value {
+                color: #ffffff !important;
+            }
+
+
+            /* ================================================
+               AI ASSESSMENT / EXPLANATION
+               ================================================ */
+
+            .analysis-card div[style*="font-size:16px"],
+            .analysis-card div[style*="font-size:18px"],
+            .analysis-card div[style*="font-size:14px"],
+            .analysis-card div[style*="font-size:15px"] {
+                color: #ffffff !important;
+            }
+
+
+            /* ================================================
+               PIPELINE TEXT
+               ================================================ */
+
+            .analysis-card div[style*="margin-top:12px"] {
+                color: #ffffff !important;
+            }
+
+
+            /* ================================================
+               KEEP PROGRESS BAR COLORS
+               ================================================ */
+
+            .analysis-card div[style*="background:#eadcc8"] {
+                color: transparent !important;
+            }
+
+            </style>
+            """,
+            unsafe_allow_html=True
+        )
+
+
+# ============================================================
+# FINAL DARK-BLUE THEME + INPUT READABILITY FIX
+# ============================================================
+
+if st.session_state.dark_mode:
+
+    st.markdown(
+        """
+        <style>
+
+        /* ---------- DARK BLUE PAGE ---------- */
+        .stApp {
+            background:
+                radial-gradient(
+                    circle at 10% 5%,
+                    rgba(40, 90, 180, 0.25),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(100, 50, 180, 0.18),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #050914,
+                    #091326,
+                    #050914
+                ) !important;
+            color: #f7faff !important;
+        }
+
+        [data-testid="stAppViewContainer"],
+        [data-testid="stMain"] {
+            background: transparent !important;
+        }
+
+        /* ---------- NUMBER INPUTS ----------
+           Keep the input box light, but make the typed value BLACK.
+           This fixes:
+           Transaction Amount (₹)
+           Retry Attempts
+           Previous Successful Payments
+           Previous Failed Payments
+        */
+        div[data-testid="stNumberInput"] > div {
+            background: #f1f3f7 !important;
+            background-color: #f1f3f7 !important;
+            border: 1px solid #8fa6c7 !important;
+            border-radius: 10px !important;
+        }
+
+        div[data-testid="stNumberInput"] input,
+        div[data-testid="stNumberInput"] input[type="number"] {
+            background: #f1f3f7 !important;
+            background-color: #f1f3f7 !important;
+            color: #111827 !important;
+            -webkit-text-fill-color: #111827 !important;
+            caret-color: #111827 !important;
+            font-weight: 700 !important;
+            opacity: 1 !important;
+        }
+
+        div[data-testid="stNumberInput"] input::placeholder {
+            color: #374151 !important;
+            -webkit-text-fill-color: #374151 !important;
+            opacity: 1 !important;
+        }
+
+        div[data-testid="stNumberInput"] button {
+            background: #1b2b46 !important;
+            color: #e7efff !important;
+            border-color: #385780 !important;
+        }
+
+        div[data-testid="stNumberInput"] button:hover {
+            background: #29466f !important;
+            color: #ffffff !important;
+        }
+
+        /* ---------- SELECT BOXES ---------- */
+        div[data-testid="stSelectbox"] [data-baseweb="select"] > div {
+            background: #f1f3f7 !important;
+            background-color: #f1f3f7 !important;
+            border: 1px solid #8fa6c7 !important;
+            color: #111827 !important;
+        }
+
+        div[data-testid="stSelectbox"] [data-baseweb="select"] span,
+        div[data-testid="stSelectbox"] [data-baseweb="select"] [role="combobox"] {
+            color: #111827 !important;
+            -webkit-text-fill-color: #111827 !important;
+        }
+
+        div[data-testid="stSelectbox"] [data-baseweb="select"] svg {
+            color: #243b5a !important;
+            fill: #243b5a !important;
+        }
+
+        /* Dropdown menu */
+        div[data-baseweb="popover"],
+        div[data-baseweb="menu"] {
+            background: #f1f3f7 !important;
+            border: 1px solid #8fa6c7 !important;
+        }
+
+        div[data-baseweb="menu"] li {
+            background: #f1f3f7 !important;
+            color: #111827 !important;
+        }
+
+        div[data-baseweb="menu"] li:hover {
+            background: #dce7f6 !important;
+            color: #111827 !important;
+        }
+
+        /* ---------- INPUT LABELS ---------- */
+        div[data-testid="stNumberInput"] label,
+        div[data-testid="stSelectbox"] label,
+        div[data-testid="stSlider"] label {
+            color: #dbe8ff !important;
+            font-weight: 750 !important;
+        }
+
+        /* ---------- REMOVE BROWN FROM RESULT CARDS ---------- */
+        .analysis-card [style*="color:#4b3d2f"],
+        .analysis-card [style*="color:#4b3822"],
+        .analysis-card [style*="color:#3a2e22"],
+        .analysis-card [style*="color:#7d684e"],
+        .analysis-card [style*="color:#7d684d"],
+        .analysis-card [style*="color:#725f48"],
+        .analysis-card [style*="color:#8f7a5f"] {
+            color: #ffffff !important;
+        }
+
+        /* Any remaining inline color in analysis text */
+        .analysis-card [style*="color:"] {
+            color: #ffffff !important;
+        }
+
+        /* Restore intentional blue labels */
+        .analysis-card .action-label,
+        .analysis-card .kpi-label,
+        .analysis-card .probability-label {
+            color: #82b5ff !important;
+        }
+
+        /* Pipeline arrows */
+        .analysis-card span[style*="b47d1c"],
+        .analysis-card span[style*="B47D1C"] {
+            color: #79a9ff !important;
+        }
+
+        /* Main result values */
+        .analysis-card .action-value,
+        .analysis-card .kpi-value,
+        .analysis-card .probability,
+        .analysis-card .section-title,
+        .analysis-card strong {
+            color: #ffffff !important;
+        }
+
+        /* Recovery progress background */
+        .analysis-card [style*="background:#eadcc8"] {
+            background: #1b2c49 !important;
+        }
+
+        /* Footer */
+        .footer,
+        .footer * {
+            color: #9db8dc !important;
+        }
+
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+
+
+# ============================================================
+# FINAL DARK BLUE UI THEME
+# White text + dark inputs across the complete dashboard
+# ============================================================
+
+if st.session_state.dark_mode:
+    st.markdown(
+        """
+        <style>
+
+        /* =====================================================
+           GLOBAL DARK BLUE PAGE
+           ===================================================== */
+
+        .stApp {
+            background:
+                radial-gradient(circle at 8% 5%, rgba(45,105,210,.20), transparent 28%),
+                radial-gradient(circle at 92% 10%, rgba(90,70,190,.16), transparent 30%),
+                linear-gradient(135deg, #050914 0%, #091326 55%, #050914 100%) !important;
+            color: #ffffff !important;
+        }
+
+        [data-testid="stAppViewContainer"],
+        [data-testid="stMain"],
+        [data-testid="stHeader"] {
+            background: transparent !important;
+        }
+
+        /* Main Streamlit text */
+        .stApp p,
+        .stApp label,
+        .stApp h1,
+        .stApp h2,
+        .stApp h3,
+        .stApp h4,
+        .stApp h5,
+        .stApp h6 {
+            color: #ffffff !important;
+        }
+
+        /* =====================================================
+           CUSTOM DASHBOARD CARDS
+           ===================================================== */
+
+        .hero,
+        .panel,
+        .analysis-card,
+        .ai-result {
+            background: linear-gradient(145deg, #0d1930, #080f20) !important;
+            border: 1px solid #29466f !important;
+            box-shadow: 0 15px 35px rgba(0,0,0,.42) !important;
+        }
+
+        .hero-title,
+        .section-title {
+            color: #ffffff !important;
+        }
+
+        .hero-title span {
+            color: #79a9ff !important;
+        }
+
+        .hero-subtitle {
+            color: #dbe8ff !important;
+        }
+
+        .kpi-card,
+        .action-card {
+            background: #111c30 !important;
+            border: 1px solid #29415f !important;
+            color: #ffffff !important;
+        }
+
+        .kpi-label,
+        .action-label,
+        .probability-label {
+            color: #82b5ff !important;
+        }
+
+        .kpi-value,
+        .kpi-description,
+        .action-value,
+        .probability,
+        .recovery-level {
+            color: #ffffff !important;
+        }
+
+        .kpi-description {
+            color: #ffffff !important;
+        }
+
+        /* =====================================================
+           FORCE INLINE BROWN TEXT TO WHITE
+           This catches the HTML result cards generated below.
+           ===================================================== */
+
+        .analysis-card [style*="color"],
+        .analysis-card [style*="COLOR"] {
+            color: #ffffff !important;
+        }
+
+        .analysis-card .action-label,
+        .analysis-card .kpi-label,
+        .analysis-card .probability-label {
+            color: #82b5ff !important;
+        }
+
+        .analysis-card .action-value,
+        .analysis-card .kpi-value,
+        .analysis-card .probability,
+        .analysis-card .section-title,
+        .analysis-card strong {
+            color: #ffffff !important;
+        }
+
+        /* Decision pipeline arrows */
+        .analysis-card span[style*="b47d1c"],
+        .analysis-card span[style*="B47D1C"] {
+            color: #79a9ff !important;
+        }
+
+        /* =====================================================
+           NUMBER INPUTS — DARK BOX + WHITE TEXT
+           Applies to all four:
+           Transaction Amount
+           Retry Attempts
+           Previous Successful Payments
+           Previous Failed Payments
+           ===================================================== */
+
+        div[data-testid="stNumberInput"] {
+            color: #ffffff !important;
+        }
+
+        div[data-testid="stNumberInput"] > div {
+            background: #111c30 !important;
+            background-color: #111c30 !important;
+            border: 1px solid #5277a8 !important;
+            border-radius: 10px !important;
+        }
+
+        div[data-testid="stNumberInput"] input,
+        div[data-testid="stNumberInput"] input[type="number"],
+        div[data-testid="stNumberInput"] input[type="text"] {
+            background: #111c30 !important;
+            background-color: #111c30 !important;
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+            caret-color: #ffffff !important;
+            opacity: 1 !important;
+            font-weight: 700 !important;
+        }
+
+        div[data-testid="stNumberInput"] input::placeholder {
+            color: #dbe8ff !important;
+            -webkit-text-fill-color: #dbe8ff !important;
+            opacity: 1 !important;
+        }
+
+        div[data-testid="stNumberInput"] button {
+            background: #1c2f4f !important;
+            color: #ffffff !important;
+            border-color: #385780 !important;
+        }
+
+        div[data-testid="stNumberInput"] button svg {
+            color: #ffffff !important;
+            fill: #ffffff !important;
+        }
+
+        div[data-testid="stNumberInput"] button:hover {
+            background: #2b4771 !important;
+            color: #ffffff !important;
+        }
+
+        /* =====================================================
+           SELECT BOXES — DARK BOX + WHITE TEXT
+           ===================================================== */
+
+        div[data-testid="stSelectbox"] {
+            color: #ffffff !important;
+        }
+
+        div[data-testid="stSelectbox"] [data-baseweb="select"] > div {
+            background: #111c30 !important;
+            background-color: #111c30 !important;
+            border: 1px solid #5277a8 !important;
+            color: #ffffff !important;
+        }
+
+        div[data-testid="stSelectbox"] [data-baseweb="select"],
+        div[data-testid="stSelectbox"] [data-baseweb="select"] [role="combobox"],
+        div[data-testid="stSelectbox"] [data-baseweb="select"] span {
+            background: transparent !important;
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
+        }
+
+        div[data-testid="stSelectbox"] [data-baseweb="select"] svg {
+            color: #9ec5ff !important;
+            fill: #9ec5ff !important;
+        }
+
+        /* Dropdown */
+        div[data-baseweb="popover"],
+        div[data-baseweb="menu"] {
+            background: #111c30 !important;
+            border: 1px solid #5277a8 !important;
+        }
+
+        div[data-baseweb="menu"] li {
+            background: #111c30 !important;
+            color: #ffffff !important;
+        }
+
+        div[data-baseweb="menu"] li:hover {
+            background: #203a60 !important;
+            color: #ffffff !important;
+        }
+
+        /* =====================================================
+           INPUT LABELS
+           ===================================================== */
+
+        div[data-testid="stNumberInput"] label,
+        div[data-testid="stSelectbox"] label,
+        div[data-testid="stSlider"] label {
+            color: #ffffff !important;
+            font-weight: 750 !important;
+        }
+
+        /* =====================================================
+           SLIDER
+           ===================================================== */
+
+        div[data-testid="stSlider"] [data-testid="stSliderThumbValue"] {
+            color: #ffffff !important;
+            font-weight: 850 !important;
+        }
+
+        /* =====================================================
+           BUTTON
+           ===================================================== */
+
+        .stButton > button {
+            background: linear-gradient(135deg, #ff4f5e, #e83f50) !important;
+            color: #ffffff !important;
+            border: 1px solid #ff6875 !important;
+        }
+
+        .stButton > button:hover {
+            background: linear-gradient(135deg, #ff6875, #ed4051) !important;
+            color: #ffffff !important;
+        }
+
+        /* =====================================================
+           PROGRESS BAR
+           ===================================================== */
+
+        .analysis-card [style*="background:#eadcc8"] {
+            background: #1b2c49 !important;
+        }
+
+        /* =====================================================
+           ALERTS
+           ===================================================== */
+
+        div[data-testid="stAlert"],
+        div[data-testid="stAlert"] p,
+        div[data-testid="stAlert"] span {
+            color: #ffffff !important;
+        }
+
+        /* =====================================================
+           FOOTER
+           ===================================================== */
+
+        .footer,
+        .footer * {
+            color: #dbe8ff !important;
+        }
+
+        /* =====================================================
+           MOBILE
+           ===================================================== */
+
+        @media (max-width: 768px) {
+            .block-container {
+                padding-left: .7rem !important;
+                padding-right: .7rem !important;
+            }
+
+            .hero {
+                padding: 24px 18px !important;
+            }
+        }
+
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
