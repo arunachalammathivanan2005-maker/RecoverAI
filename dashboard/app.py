@@ -1,3 +1,4 @@
+
 import sys
 import textwrap
 from pathlib import Path
@@ -641,58 +642,31 @@ div[data-testid="stNumberInput"] button:hover {
     background: #e7d2aa !important;
 }
 
-/* SELECT BOXES — FINAL BROWN / GOLD STYLE */
-div[data-testid="stSelectbox"] {
+div[data-testid="stSelectbox"] [data-baseweb="select"] {
     width: 100% !important;
 }
-
-div[data-testid="stSelectbox"] [data-baseweb="select"] {
-    background: #fffaf2 !important;
-    background-color: #fffaf2 !important;
-    border: 1.5px solid #c7922e !important;
-    border-radius: 10px !important;
-    box-shadow: none !important;
-}
-
-div[data-testid="stSelectbox"] [data-baseweb="select"] > div {
-    background: #fffaf2 !important;
-    background-color: #fffaf2 !important;
-    color: #3a2e22 !important;
-    border: none !important;
-}
-
-div[data-testid="stSelectbox"] [data-baseweb="select"] [role="combobox"] {
-    background: #fffaf2 !important;
-    color: #3a2e22 !important;
-}
-
+div[data-testid="stSelectbox"] [data-baseweb="select"] [role="combobox"],
 div[data-testid="stSelectbox"] [data-baseweb="select"] span {
     background: transparent !important;
     color: #3a2e22 !important;
 }
-
 div[data-testid="stSelectbox"] [data-baseweb="select"] svg {
-    color: #8f641b !important;
-    fill: #8f641b !important;
+    color: #a47a29 !important;
+    fill: #a47a29 !important;
 }
 
-/* Dropdown menu */
+/* Dropdown */
 div[data-baseweb="popover"],
 div[data-baseweb="menu"] {
     background: #fffaf2 !important;
-    background-color: #fffaf2 !important;
-    border: 1.5px solid #c7922e !important;
+    border: 1px solid #cfb996 !important;
 }
-
 div[data-baseweb="menu"] li {
     background: #fffaf2 !important;
     color: #3a2e22 !important;
 }
-
-div[data-baseweb="menu"] li:hover,
-div[data-baseweb="menu"] li[aria-selected="true"] {
+div[data-baseweb="menu"] li:hover {
     background: #f1e2c7 !important;
-    color: #3a2e22 !important;
 }
 
 /* Slider */
@@ -972,65 +946,25 @@ if st.session_state.dark_mode:
         }
 
 
-        /* SELECT BOX — KEEP BROWN / GOLD, EVEN WHEN DARK MODE IS ENABLED */
-        div[data-testid="stSelectbox"] {
-            width: 100% !important;
-        }
-
-        div[data-testid="stSelectbox"]
-        [data-baseweb="select"] {
-            background: #fffaf2 !important;
-            background-color: #fffaf2 !important;
-            border: 1.5px solid #c7922e !important;
-            border-radius: 10px !important;
-            box-shadow: none !important;
-        }
-
+        /* SELECT BOX */
         div[data-testid="stSelectbox"]
         [data-baseweb="select"] > div {
-            background: #fffaf2 !important;
-            background-color: #fffaf2 !important;
-            color: #3a2e22 !important;
-            border: none !important;
-        }
-
-        div[data-testid="stSelectbox"]
-        [data-baseweb="select"]
-        [role="combobox"] {
-            background: #fffaf2 !important;
-            color: #3a2e22 !important;
+            background: #151e31 !important;
+            background-color: #151e31 !important;
+            border: 1px solid #385780 !important;
         }
 
         div[data-testid="stSelectbox"]
         [data-baseweb="select"]
         span {
-            background: transparent !important;
-            color: #3a2e22 !important;
+            color: #ffffff !important;
         }
 
         div[data-testid="stSelectbox"]
         [data-baseweb="select"]
         svg {
-            color: #8f641b !important;
-            fill: #8f641b !important;
-        }
-
-        div[data-baseweb="popover"],
-        div[data-baseweb="menu"] {
-            background: #fffaf2 !important;
-            background-color: #fffaf2 !important;
-            border: 1.5px solid #c7922e !important;
-        }
-
-        div[data-baseweb="menu"] li {
-            background: #fffaf2 !important;
-            color: #3a2e22 !important;
-        }
-
-        div[data-baseweb="menu"] li:hover,
-        div[data-baseweb="menu"] li[aria-selected="true"] {
-            background: #f1e2c7 !important;
-            color: #3a2e22 !important;
+            color: #8db7ff !important;
+            fill: #8db7ff !important;
         }
 
 
@@ -3500,63 +3434,6 @@ if st.session_state.dark_mode:
         }
 
         </style>
-        /* ============================================================
-   FINAL SELECTBOX STYLE — CREAM + BROWN
-   ============================================================ */
-
-/* Main selectbox */
-div[data-testid="stSelectbox"] div[data-baseweb="select"] {
-    background-color: #f8f1e5 !important;
-    border: 1px solid #c9a86a !important;
-    border-radius: 8px !important;
-    box-shadow: none !important;
-}
-
-/* Inner select area */
-div[data-testid="stSelectbox"] div[data-baseweb="select"] > div {
-    background-color: #f8f1e5 !important;
-    color: #3b2a1a !important;
-}
-
-/* Selected text */
-div[data-testid="stSelectbox"] div[data-baseweb="select"] span {
-    color: #3b2a1a !important;
-}
-
-/* Dropdown arrow area */
-div[data-testid="stSelectbox"] div[data-baseweb="select"] svg {
-    color: #5a4024 !important;
-    fill: #5a4024 !important;
-}
-
-/* Dropdown menu */
-div[data-baseweb="popover"] {
-    background-color: #f8f1e5 !important;
-    border: 1px solid #c9a86a !important;
-}
-
-/* Dropdown list */
-div[data-baseweb="menu"] {
-    background-color: #f8f1e5 !important;
-}
-
-/* Dropdown options */
-div[data-baseweb="menu"] li {
-    background-color: #f8f1e5 !important;
-    color: #3b2a1a !important;
-}
-
-/* Hover */
-div[data-baseweb="menu"] li:hover {
-    background-color: #ead8b8 !important;
-    color: #3b2a1a !important;
-}
-
-/* Selected option */
-div[data-baseweb="menu"] li[aria-selected="true"] {
-    background-color: #ead8b8 !important;
-    color: #3b2a1a !important;
-}
         """,
         unsafe_allow_html=True
     )
