@@ -2,11 +2,17 @@
 
 ## Payment Recovery System
 
-RecoverAI is a project that helps decide what to do when a payment fails.
+RecoverAI is a payment recovery decision system designed to help determine what action should be taken when a payment fails.
 
-Instead of retrying every failed payment in the same way, RecoverAI looks at the transaction details, estimates the chance of recovery, and suggests the next step.
+Instead of treating every failed payment the same way, RecoverAI analyzes transaction details, estimates the probability of recovery, and recommends an appropriate next action.
 
-For example, depending on the situation, the system may recommend retrying the payment immediately, trying again later, using another gateway, asking the customer to authenticate, or stopping the recovery attempt.
+Depending on the situation, the system may recommend:
+
+- Retrying the payment immediately
+- Retrying the payment later
+- Switching to another payment gateway
+- Asking the customer to authenticate the transaction
+- Stopping further recovery attempts
 
 ---
 
@@ -14,28 +20,34 @@ For example, depending on the situation, the system may recommend retrying the p
 
 A failed payment does not always mean that the payment cannot be recovered.
 
-Some failures are temporary, while others may require the customer to take an action. Repeatedly retrying every failed transaction can also result in unnecessary attempts.
+Some failures are temporary and may succeed if retried later, while others may require customer action or a different payment method. Repeatedly retrying every failed transaction can also lead to unnecessary attempts.
 
-The goal of RecoverAI is to make this decision more intelligently by using the transaction information available at the time of failure.
+The goal of RecoverAI is to make payment recovery decisions more intelligently by using the transaction information available at the time of failure.
 
 ---
 
 ## How It Works
 
-The project follows a simple flow:
+RecoverAI follows a simple decision-making flow:
 
 ```text
 Failed Payment
       |
+      v
 Transaction Details
       |
+      v
 Recovery Prediction
       |
+      v
 Recovery Decision
       |
+      v
 Recovery Action
       |
-Result on Dashboard
+      v
+Dashboard Result
+```
 
 ---
 
@@ -44,38 +56,38 @@ Result on Dashboard
 - Analyze failed payment transactions
 - Predict recovery probability
 - Classify transactions into low, medium, and high recovery levels
-- Suggest a suitable recovery action
-- Display the result through an interactive dashboard
+- Recommend suitable recovery actions
+- Display prediction results through an interactive dashboard
 - Provide recovery analytics
-- Run automated tests
+- Run automated tests to verify core functionality
 
 ---
 
 ## Example Results
 
-### Low Recovery
+### 🔴 Low Recovery
 
-Recovery Probability: 46.70%
+**Recovery Probability:** 46.70%
 
-Action: STOP
+**Action:** `STOP`
 
-Status: RECOVERY_STOPPED
+**Status:** `RECOVERY_STOPPED`
 
-### Medium Recovery
+### 🟡 Medium Recovery
 
-Recovery Probability: 53.39%
+**Recovery Probability:** 53.39%
 
-Action: RETRY_LATER
+**Action:** `RETRY_LATER`
 
-Status: RETRY_SCHEDULED
+**Status:** `RETRY_SCHEDULED`
 
-### High Recovery
+### 🟢 High Recovery
 
-Recovery Probability: 84.50%
+**Recovery Probability:** 84.50%
 
-Action: RETRY_NOW
+**Action:** `RETRY_NOW`
 
-Status: RETRY_INITIATED
+**Status:** `RETRY_INITIATED`
 
 ---
 
@@ -90,41 +102,151 @@ Status: RETRY_INITIATED
 
 ---
 
----
+## Project Structure
 
-## Theme Support
-
-RecoverAI provides both **Light Mode** and **Dark Mode** to make the dashboard comfortable to use in different working environments.
-
-- ☀️ **Light Mode** — Suitable for daytime use and well-lit environments, providing a bright and clear interface.
-- 🌙 **Dark Mode** — Designed for users working during night shifts or in low-light environments, making the dashboard more comfortable to view.
-
-Users can choose the mode that best suits their working conditions and personal preference, whether they are using RecoverAI during the day or working late at night.
-
-This user-focused design helps make RecoverAI comfortable and accessible across different work schedules and environments.
+```text
+RecoverAI/
+│
+├── dashboard/
+├── data/
+│   └── raw/
+├── notebooks/
+├── src/
+├── tests/
+│
+├── .gitignore
+└── requirements.txt
+```
 
 ---
 
 ## How to Run
 
+### 1. Clone the Repository
+
+```powershell
+git clone https://github.com/arunachalammathivanan2005-maker/RecoverAI.git
+cd RecoverAI
+```
+
+### 2. Install Dependencies
+
 ```powershell
 python -m pip install -r requirements.txt
+```
+
+### 3. Start the Dashboard
+
+```powershell
 python -m streamlit run dashboard\app.py
 ```
 
-Run the tests with:
+The RecoverAI dashboard will open in your browser.
+
+---
+
+## Run Tests
+
+To run the automated tests:
 
 ```powershell
 python -m pytest -q
 ```
 
-Current result:
+### Current Test Result
 
 ```text
 2 passed
 ```
 
-The tests cover the Recovery Agent and Recovery Engine.
+The tests currently cover the core Recovery Agent and Recovery Engine functionality.
+
+---
+
+## Theme Support
+
+RecoverAI supports both **Light Mode** and **Dark Mode** to provide a comfortable experience in different working environments.
+
+### ☀️ Light Mode
+
+Light Mode provides a bright and clear interface that is suitable for daytime use and well-lit environments.
+
+### 🌙 Dark Mode
+
+Dark Mode is designed for users working during night shifts or in low-light environments. It provides a more comfortable viewing experience when working for longer periods.
+
+Users can switch between Light Mode and Dark Mode based on their environment and personal preference.
+
+---
+
+## Recovery Decision Logic
+
+RecoverAI uses the predicted recovery probability to determine the recommended recovery action.
+
+```text
+Recovery Probability
+        |
+        v
++------------------------+
+| Recovery Classification|
++------------------------+
+        |
+        +------------------+
+        |                  |
+        v                  v
+   Low Recovery      Higher Recovery
+        |                  |
+        v                  v
+      STOP           RETRY / RECOVER
+```
+
+The final action depends on the transaction characteristics and the recovery prediction generated by the system.
+
+---
+
+## Key Features
+
+### 🤖 Machine Learning
+
+Uses machine learning techniques to estimate the probability that a failed payment can be successfully recovered.
+
+### 💳 Payment Recovery
+
+Provides an actionable recommendation instead of simply identifying that a payment has failed.
+
+### 📊 Interactive Dashboard
+
+The Streamlit dashboard allows users to interact with the recovery system and view prediction results.
+
+### 📈 Recovery Analytics
+
+Provides insights into recovery probabilities, recovery levels, and recommended actions.
+
+### 🧪 Automated Testing
+
+Core components are tested using Python's testing framework to verify that the recovery workflow behaves as expected.
+
+### 🌓 Light & Dark Mode
+
+Provides both light and dark interface options for users working in different environments and schedules.
+
+---
+
+## Example Workflow
+
+```text
+1. Payment fails
+        ↓
+2. Transaction information is collected
+        ↓
+3. Recovery probability is predicted
+        ↓
+4. Recovery level is determined
+        ↓
+5. Recovery action is recommended
+        ↓
+6. Result is displayed on the dashboard
+```
 
 ---
 
@@ -138,10 +260,54 @@ The tests cover the Recovery Agent and Recovery Engine.
 - Model retraining with real transaction data
 - API deployment
 - Cloud deployment
-- More detailed analytics
+- More detailed recovery analytics
+- Improved fraud and risk detection
+- Transaction history and reporting
 
 ---
 
 ## Built For
 
-RecoverAI was developed as a buildathon project to explore how transaction data and machine learning can be used to make better payment recovery decisions.
+RecoverAI was developed as a **buildathon project** to explore how transaction data and machine learning can be used to make smarter payment recovery decisions.
+
+The project combines:
+
+- Machine Learning
+- Transaction Analysis
+- Payment Recovery Logic
+- Automated Testing
+- Interactive Dashboard Design
+
+into a single payment recovery workflow.
+
+---
+
+## Project Goal
+
+The goal of RecoverAI is simple:
+
+> **When a payment fails, make a smarter decision about what should happen next.**
+
+Rather than blindly retrying failed payments, RecoverAI uses transaction data and machine learning to recommend a more suitable recovery strategy.
+
+---
+
+## Status
+
+🟢 **Project Status: Functional**
+
+- ✅ Recovery prediction implemented
+- ✅ Recovery decision logic implemented
+- ✅ Interactive dashboard available
+- ✅ Recovery analytics available
+- ✅ Automated tests passing
+- ✅ Light Mode supported
+- ✅ Dark Mode supported
+
+---
+
+## Author
+
+**Arun M**
+
+Built with Python, Machine Learning, and Streamlit. 🚀
