@@ -90,6 +90,21 @@ Status: RETRY_INITIATED
 
 ---
 
+---
+
+## Theme Support
+
+RecoverAI provides both **Light Mode** and **Dark Mode** to make the dashboard comfortable to use in different working environments.
+
+- ☀️ **Light Mode** — Suitable for daytime use and well-lit environments, providing a bright and clear interface.
+- 🌙 **Dark Mode** — Designed for users working during night shifts or in low-light environments, making the dashboard more comfortable to view.
+
+Users can choose the mode that best suits their working conditions and personal preference, whether they are using RecoverAI during the day or working late at night.
+
+This user-focused design helps make RecoverAI comfortable and accessible across different work schedules and environments.
+
+---
+
 ## How to Run
 
 ```powershell
