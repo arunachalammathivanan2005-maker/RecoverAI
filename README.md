@@ -4,6 +4,8 @@
 
 [🚀 Live Demo](https://recoverai-arun.streamlit.app/)
 
+[ 🎥 5-Minute Pitch Video](https://drive.google.com/file/d/18zpaVU8j06b8-VDNX9f0M2M-ERwUXJti/view?usp=sharing)
+
 RecoverAI is a payment recovery decision system designed to help determine what action should be taken when a payment fails.
 
 Instead of treating every failed payment the same way, RecoverAI analyzes transaction details, estimates the probability of recovery, and recommends an appropriate next action.
